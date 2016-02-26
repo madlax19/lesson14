@@ -42,6 +42,15 @@
 												 [self downloadItunesAudioPreview:previewUrl];
 											 }];
 	[task resume];
+	
+	NSString *applicationSupportPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Library"] stringByAppendingPathComponent:@"Application Support"];
+	if (![[NSFileManager defaultManager] fileExistsAtPath:applicationSupportPath]) {
+		NSError *error = nil;
+		[[NSFileManager defaultManager] createDirectoryAtPath:applicationSupportPath
+								  withIntermediateDirectories:YES
+												   attributes:nil
+														error:&error];
+	}
 }
 
 -(void) downloadItunesAudioPreview:(NSString *)previewUrl {
