@@ -64,7 +64,7 @@
                                                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         </activityIndicatorView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="JhD-nc-3yc" firstAttribute="top" secondItem="RsD-ET-gY8" secondAttribute="top" constant="8" id="QTh-Bo-hbb"/>
                                                         <constraint firstAttribute="bottom" secondItem="vos-nt-CrY" secondAttribute="bottom" constant="7" id="cV7-VQ-eBo"/>
@@ -97,7 +97,7 @@
                                                 <constraint firstItem="pvt-3a-LFf" firstAttribute="top" secondItem="1vK-fw-dXh" secondAttribute="bottom" constant="8" id="xMz-Vp-qt3"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="cellButton" destination="Kla-sa-POv" id="TUQ-7c-vRa"/>
                                             <outlet property="nameLabel" destination="1vK-fw-dXh" id="tZR-30-MXR"/>

@@ -62,6 +62,7 @@
                 if ([fileManager fileExistsAtPath:destinationUrl]) {
                     downloadObject.progress = 1.0;
                     downloadObject.isDownloaded = YES;
+                    downloadObject.fileUrl = destinationUrl;
                 } else {
                     downloadObject.progress = 0.0;
                     downloadObject.isDownloaded = NO;
@@ -108,12 +109,43 @@
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DownloadObject *object = self.audioList[indexPath.row];
+    [self loadPhotosForObject:object];
+}
+
+- (void)loadPhotosForObject: (DownloadObject*) object {
+    NSString *name = [object.audioObject.artistName stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *url = [NSString stringWithFormat:@"https://api.imgur.com/3/gallery/search/top/0?q=%@", name];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setValue:@"Client-ID 510d3df1e146294" forHTTPHeaderField:@"Authorization"];
+    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSError *jsonError = nil;
+        NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
+        if (jsonError) {
+            NSLog(@"%@", jsonError.localizedDescription);
+        } else {
+            NSArray *jsonArray = jsonData[@"data"];
+            NSMutableArray *urlsArray = [[NSMutableArray alloc] init];
+            for (NSDictionary *dict in jsonArray) {
+                NSString *link = dict[@"link"];
+                [urlsArray addObject:[NSURL URLWithString:link]];
+            }
+            IDMPhotoBrowser *browser = [[IDMPhotoBrowser alloc] initWithPhotoURLs:urlsArray];
+            [self presentViewController:browser animated:YES completion:nil];
+        }
+    }];
+    [task resume];
+}
+
 - (void)cellButtonTouched: (DownloadObject*) object {
     if (object.isDownloaded) {
         AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] initWithNibName:nil bundle:nil];
         AVPlayer *player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:object.fileUrl]];
         playerViewController.player = player;
-        [self presentViewController:playerViewController animated:YES completion:nil];
+        [self presentViewController:playerViewController animated:YES completion:^{
+            [player play];
+        }];
     } else {
         NSURLSessionDownloadTask *task = [self.session downloadTaskWithURL:[NSURL URLWithString:object.audioObject.previewURL]];
         object.downloadTask = task;
