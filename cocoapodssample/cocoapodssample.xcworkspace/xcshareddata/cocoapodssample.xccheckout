@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E025ED8C-B093-4FAD-AD08-4BC9FD292DAD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>cocoapodssample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2D107646A8C685434EF51306574FE28322F1292F</key>
+		<string>https://github.com/geekhubios2015/lesson14.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>cocoapodssample/cocoapodssample.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2D107646A8C685434EF51306574FE28322F1292F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/geekhubios2015/lesson14.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2D107646A8C685434EF51306574FE28322F1292F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2D107646A8C685434EF51306574FE28322F1292F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Lesson14</string>
+		</dict>
+	</array>
+</dict>
+</plist>
